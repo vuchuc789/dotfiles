@@ -24,3 +24,17 @@ cp -r neovim/* ~/.config/nvim/
 
 - [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
 - [Monaspice Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Monaspace)
+
+## 🚀 Install
+
+With `curl`:
+
+```
+curl -fsSL https://raw.githubusercontent.com/vuchuc789/dotfiles/main/setup.sh | bash
+```
+
+or with `wget`:
+
+```
+wget -qO- https://raw.githubusercontent.com/vuchuc789/dotfiles/main/setup.sh | bash
+```
