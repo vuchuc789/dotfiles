@@ -1,21 +1,26 @@
-# My dotfiles
+# 🧙‍♂️ My Dotfiles
 
-My dotfiles contain configurations of:
+This repo contains my personal setup for:
 
-- Kitty
+## 🐱 Kitty
 
 ```
 cp kitty/* ~/.config/kitty/
 ```
 
-- Tmux
+## 🧩 Tmux
 
 ```
 cp tmux/.tmux.conf ~
 ```
 
-- Neovim
+## ✨ Neovim
 
 ```
 cp -r neovim/* ~/.config/nvim/
 ```
+
+## 🔤 Fonts
+
+- [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
+- [Monaspice Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Monaspace)
