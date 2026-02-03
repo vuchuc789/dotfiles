@@ -3,6 +3,11 @@
 My dotfiles contain configurations of:
 
 - Kitty
+
+```
+cp kitty/* ~/.config/kitty/
+```
+
 - Tmux
 
 ```
