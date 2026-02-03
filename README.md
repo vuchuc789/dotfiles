@@ -4,6 +4,11 @@ My dotfiles contain configurations of:
 
 - Kitty
 - Tmux
+
+```
+cp tmux/.tmux.conf ~
+```
+
 - Neovim
 
 ```
