@@ -42,3 +42,7 @@ or with `wget`:
 ```
 wget -qO- https://raw.githubusercontent.com/vuchuc789/dotfiles/main/setup.sh | bash
 ```
+
+## 📸 Screenshot
+
+![Screenshot](screenshot.png)
