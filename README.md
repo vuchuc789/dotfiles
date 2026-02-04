@@ -24,6 +24,12 @@ Follow the `zsh/README.md`.
 cp -r neovim/* ~/.config/nvim/
 ```
 
+## 🎨 Colorschemes
+
+- [Tokionight](https://github.com/folke/tokyonight.nvim)
+- [Catppuccin](https://github.com/catppuccin/catppuccin)
+- [Rosé Pine](https://rosepinetheme.com/themes/)
+
 ## 🔤 Fonts
 
 - [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
