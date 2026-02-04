@@ -14,6 +14,10 @@ cp kitty/* ~/.config/kitty/
 cp tmux/.tmux.conf ~
 ```
 
+## 🐚 ZSH
+
+Follow the `zsh/README.md`.
+
 ## ✨ Neovim
 
 ```
