@@ -32,8 +32,11 @@ cp -r neovim/* ~/.config/nvim/
 
 ## 🔤 Fonts
 
-- [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
-- [Monaspice Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Monaspace)
+- FiraCode Nerd Font
+- Monaspice Nerd Font
+- Monofur Nerd Font
+
+> Download fonts [here](https://www.nerdfonts.com/font-downloads).
 
 ## 🚀 Install
 
