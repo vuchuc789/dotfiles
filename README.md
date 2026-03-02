@@ -24,6 +24,26 @@ Follow the `zsh/README.md`.
 cp -r neovim/* ~/.config/nvim/
 ```
 
+## 📝 Vim
+
+A portable Vim config for servers.
+
+```
+cp vim/.vimrc ~
+```
+
+Install with `curl`:
+
+```
+curl -fsSL https://raw.githubusercontent.com/vuchuc789/dotfiles/main/vim/.vimrc -o ~/.vimrc
+```
+
+or with `wget`:
+
+```
+wget -qO ~/.vimrc https://raw.githubusercontent.com/vuchuc789/dotfiles/main/vim/.vimrc
+```
+
 ## 🎨 Colorschemes
 
 - [Tokionight](https://github.com/folke/tokyonight.nvim)
@@ -38,7 +58,7 @@ cp -r neovim/* ~/.config/nvim/
 
 > Download fonts [here](https://www.nerdfonts.com/font-downloads).
 
-## 🚀 Install
+## 🚀 Quick Install
 
 With `curl`:
 
