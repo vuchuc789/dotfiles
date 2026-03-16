@@ -16,6 +16,7 @@ return {
         tailwindcss = {},
         vtsls = {},
         eslint = {},
+        prismals = {},
 
         -- Python
         pyright = {
