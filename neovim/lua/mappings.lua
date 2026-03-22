@@ -4,8 +4,10 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 local nomap = vim.keymap.del
+
 local gitsigns = require "gitsigns"
 local textobjects_select = require "nvim-treesitter-textobjects.select"
+local mc = require "multicursor-nvim"
 
 -- terminal
 nomap("t", "<C-x>")
@@ -125,3 +127,39 @@ end)
 map({ "x", "o" }, "as", function()
   textobjects_select.select_textobject("@local.scope", "locals")
 end)
+
+-- Add or skip cursor above/below the main cursor.
+map({ "n", "x" }, "<up>", function()
+  mc.lineAddCursor(-1)
+end)
+map({ "n", "x" }, "<down>", function()
+  mc.lineAddCursor(1)
+end)
+map({ "n", "x" }, "<leader><up>", function()
+  mc.lineSkipCursor(-1)
+end)
+map({ "n", "x" }, "<leader><down>", function()
+  mc.lineSkipCursor(1)
+end)
+
+-- Add or skip adding a new cursor by matching word/selection
+map({ "n", "x" }, "<leader>n", function()
+  mc.matchAddCursor(1)
+end)
+map({ "n", "x" }, "<leader>s", function()
+  mc.matchSkipCursor(1)
+end)
+map({ "n", "x" }, "<leader>N", function()
+  mc.matchAddCursor(-1)
+end)
+map({ "n", "x" }, "<leader>S", function()
+  mc.matchSkipCursor(-1)
+end)
+
+-- Add and remove cursors with control + left click.
+map("n", "<c-leftmouse>", mc.handleMouse)
+map("n", "<c-leftdrag>", mc.handleMouseDrag)
+map("n", "<c-leftrelease>", mc.handleMouseRelease)
+
+-- Disable and enable cursors.
+map({ "n", "x" }, "<c-q>", mc.toggleCursor)
