@@ -1,5 +1,21 @@
 require "nvchad.autocmds"
 
+-- vim.treesitter.language.register("yaml", "helm")
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.yaml", "*.yml", "*.tpl" },
+  callback = function()
+    local dir = vim.fn.expand "%:p:h"
+    while dir ~= "/" do
+      if vim.fn.filereadable(dir .. "/Chart.yaml") == 1 then
+        vim.bo.filetype = "helm"
+        return
+      end
+      dir = vim.fn.fnamemodify(dir, ":h")
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)

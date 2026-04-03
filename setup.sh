@@ -11,14 +11,13 @@ echo "📁 Backup directory: $BACKUP_DIR"
 mkdir -p "$BACKUP_DIR"
 mkdir -p "$HOME/.config"
 
-# Clone or update repo
-if [ ! -d "$DOTFILES_DIR" ]; then
-  echo "⬇️  Cloning dotfiles repo..."
-  git clone "$REPO_URL" "$DOTFILES_DIR"
-else
-  echo "🔄 Dotfiles repo already exists, pulling latest changes..."
-  git -C "$DOTFILES_DIR" pull
-fi
+# -------------------------
+# Helpers
+# -------------------------
+
+has() {
+  command -v "$1" >/dev/null 2>&1
+}
 
 backup_if_exists() {
   local target=$1
@@ -35,17 +34,54 @@ link() {
   ln -sfn "$src" "$dest"
 }
 
+# -------------------------
+# Clone or update repo
+# -------------------------
+
+if [ ! -d "$DOTFILES_DIR" ]; then
+  echo "⬇️  Cloning dotfiles repo..."
+  git clone "$REPO_URL" "$DOTFILES_DIR"
+else
+  echo "🔄 Dotfiles repo already exists, pulling latest changes..."
+  git -C "$DOTFILES_DIR" pull
+fi
+
 echo "🧹 Backing up existing configs..."
 
-backup_if_exists "$HOME/.config/kitty"
-backup_if_exists "$HOME/.config/nvim"
-backup_if_exists "$HOME/.tmux.conf"
+# -------------------------
+# Kitty
+# -------------------------
+if has kitty; then
+  echo "🐱 Kitty detected"
+  backup_if_exists "$HOME/.config/kitty"
+  link "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
+else
+  echo "⏭️  Skipping kitty (not installed)"
+fi
 
-echo "🔗 Creating symlinks..."
+# -------------------------
+# Neovim
+# -------------------------
+if has nvim; then
+  echo "📝 Neovim detected"
+  backup_if_exists "$HOME/.config/nvim"
+  link "$DOTFILES_DIR/neovim" "$HOME/.config/nvim"
+else
+  echo "⏭️  Skipping nvim (not installed)"
+fi
 
-link "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
-link "$DOTFILES_DIR/neovim" "$HOME/.config/nvim"
-link "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+# -------------------------
+# Tmux
+# -------------------------
+if has tmux; then
+  echo "🧵 Tmux detected"
+  backup_if_exists "$HOME/.tmux.conf"
+  link "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+else
+  echo "⏭️  Skipping tmux (not installed)"
+fi
+
+# -------------------------
 
 echo "✅ Done!"
 echo "📦 Old configs saved in: $BACKUP_DIR"
