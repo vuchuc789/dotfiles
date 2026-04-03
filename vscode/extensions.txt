@@ -1,0 +1,17 @@
+aaron-bond.better-comments
+christian-kohler.path-intellisense
+donjayamanne.githistory
+eamodio.gitlens
+james-yu.latex-workshop
+miguelsolorio.fluent-icons
+ms-azuretools.vscode-containers
+ms-kubernetes-tools.vscode-kubernetes-tools
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-pylance
+mvllow.rose-pine
+redhat.vscode-yaml
+streetsidesoftware.code-spell-checker
+unifiedjs.vscode-mdx
+vscode-icons-team.vscode-icons
+vscodevim.vim
