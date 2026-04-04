@@ -71,7 +71,10 @@
   // 🐧 Vim Core
   // ========================
   "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
   "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
   "vim.easymotion": true,
   "vim.sneak": true,
   "vim.sneakUseIgnorecaseAndSmartcase": true,
