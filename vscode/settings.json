@@ -1,253 +1,180 @@
 {
-    // ========================
-    // 🎨 UI / Theme
-    // ========================
-    "workbench.colorTheme": "Rosé Pine",
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.productIconTheme": "fluent-icons",
-    "vsicons.dontShowNewVersionMessage": true,
-    // ========================
-    // 🖋️ Editor Appearance
-    // ========================
-    "editor.fontFamily": "'Monofur Nerd Font Mono', 'FiraCode Nerd Font Mono', Consolas, 'Courier New', monospace",
-    "editor.fontSize": 16,
-    "editor.fontLigatures": true,
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.smoothScrolling": true,
-    "workbench.list.smoothScrolling": true,
-    // Neovim-like feel
-    "editor.lineNumbers": "relative",
-    "editor.renderLineHighlight": "all",
-    // "editor.minimap.enabled": false,
-    // "editor.scrollBeyondLastLine": false,
-    // ========================
-    // ✍️ Editing Behavior
-    // ========================
-    "editor.formatOnSave": true,
-    "editor.linkedEditing": true,
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 100,
-    "editor.codeActionsOnSave": {
-        "source.fixAll": "explicit"
+  // ========================
+  // 🎨 UI / Theme
+  // ========================
+  "workbench.colorTheme": "Rosé Pine",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.productIconTheme": "fluent-icons",
+  "vsicons.dontShowNewVersionMessage": true,
+  // ========================
+  // 🖋️ Editor Appearance
+  // ========================
+  "editor.fontFamily": "'Monofur Nerd Font Mono', 'FiraCode Nerd Font Mono', Consolas, 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "editor.fontLigatures": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
+  // Neovim-like feel
+  "editor.lineNumbers": "relative",
+  "editor.renderLineHighlight": "all",
+  // "editor.minimap.enabled": false,
+  // "editor.scrollBeyondLastLine": false,
+  // ========================
+  // ✍️ Editing Behavior
+  // ========================
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 100,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // ========================
+  // 🧠 Language-specific
+  // ========================
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[latex]": {
+    "editor.formatOnSave": false
+  },
+  "latex-workshop.formatting.latex": "latexindent",
+  // ========================
+  // 🖥️ Terminal
+  // ========================
+  "terminal.integrated.fontFamily": "'Monofur Nerd Font Mono', 'FiraCode Nerd Font Mono', Consolas, 'Courier New', monospace",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.smoothScrolling": true,
+  // ========================
+  // 🐧 Vim Core
+  // ========================
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": true,
+  "vim.easymotion": true,
+  "vim.sneak": true,
+  "vim.sneakUseIgnorecaseAndSmartcase": true,
+  // Optional: let VSCode handle some Ctrl keys (recommended)
+  // "vim.handleKeys": {
+  //   "<C-p>": false,
+  //   "<C-f>": false,
+  //   "<C-a>": false
+  // },
+  // ========================
+  // ✏️ Insert Mode
+  // ========================
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<esc>"]
     },
-    // ========================
-    // 🧠 Language-specific
-    // ========================
-    "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
+    {
+      "before": ["k", "j"],
+      "after": ["<esc>"]
+    }
+  ],
+  // ========================
+  // 🔧 Normal Mode
+  // ========================
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
     },
-    "[latex]": {
-        "editor.formatOnSave": false
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
     },
-    "latex-workshop.formatting.latex": "latexindent",
-    // ========================
-    // 🖥️ Terminal
-    // ========================
-    "terminal.integrated.fontFamily": "'Monofur Nerd Font Mono', 'FiraCode Nerd Font Mono', Consolas, 'Courier New', monospace",
-    "terminal.integrated.fontSize": 16,
-    "terminal.integrated.smoothScrolling": true,
-    // ========================
-    // 🐧 Vim Core
-    // ========================
-    "vim.leader": "<space>",
-    "vim.useSystemClipboard": true,
-    "vim.easymotion": true,
-    "vim.sneak": true,
-    "vim.sneakUseIgnorecaseAndSmartcase": true,
-    // Optional: let VSCode handle some Ctrl keys (recommended)
-    // "vim.handleKeys": {
-    //   "<C-p>": false,
-    //   "<C-f>": false,
-    //   "<C-a>": false
-    // },
-    // ========================
-    // ✏️ Insert Mode
-    // ========================
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "k"
-            ],
-            "after": [
-                "<esc>"
-            ]
-        },
-        {
-            "before": [
-                "k",
-                "j"
-            ],
-            "after": [
-                "<esc>"
-            ]
-        }
-    ],
-    // ========================
-    // 🔧 Normal Mode
-    // ========================
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "j"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "k"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                "<C-h>"
-            ],
-            "after": [
-                "<C-w>",
-                "h"
-            ]
-        },
-        {
-            "before": [
-                "<C-j>"
-            ],
-            "after": [
-                "<C-w>",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "<C-k>"
-            ],
-            "after": [
-                "<C-w>",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                "<C-l>"
-            ],
-            "after": [
-                "<C-w>",
-                "l"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "e"
-            ],
-            "commands": [
-                "workbench.view.explorer"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "f"
-            ],
-            "commands": [
-                "workbench.action.quickOpen"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "w"
-            ],
-            "commands": [
-                "workbench.action.findInFiles"
-            ]
-        },
-        // 🔥 Add: save like :w
-        {
-            "before": [
-                "<leader>",
-                "w"
-            ],
-            "commands": [
-                "workbench.action.files.save"
-            ]
-        }
-    ],
-    // ========================
-    // 👀 Visual Mode
-    // ========================
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "j"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "k"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                ">"
-            ],
-            "commands": [
-                "editor.action.indentLines"
-            ]
-        },
-        {
-            "before": [
-                "<"
-            ],
-            "commands": [
-                "editor.action.outdentLines"
-            ]
-        },
-        // 🔥 Keep selection after indent (more Vim-like)
-        {
-            "before": [
-                ">",
-                ">"
-            ],
-            "after": [
-                ">",
-                "g",
-                "v"
-            ]
-        },
-        {
-            "before": [
-                "<",
-                "<"
-            ],
-            "after": [
-                "<",
-                "g",
-                "v"
-            ]
-        }
-    ],
-    // ========================
-    // ⚙️ Performance / Misc
-    // ========================
-    "extensions.experimental.affinity": {
-        "vscodevim.vim": 1
+    {
+      "before": ["<C-h>"],
+      "after": ["<C-w>", "h"]
     },
-    "redhat.telemetry.enabled": false
+    {
+      "before": ["<C-j>"],
+      "after": ["<C-w>", "j"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["<C-w>", "k"]
+    },
+    {
+      "before": ["<C-l>"],
+      "after": ["<C-w>", "l"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    // 🔥 Add: save like :w
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    }
+  ],
+  // ========================
+  // 👀 Visual Mode
+  // ========================
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    // 🔥 Keep selection after indent (more Vim-like)
+    {
+      "before": [">", ">"],
+      "after": [">", "g", "v"]
+    },
+    {
+      "before": ["<", "<"],
+      "after": ["<", "g", "v"]
+    }
+  ],
+  // ========================
+  // ⚙️ Performance / Misc
+  // ========================
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "redhat.telemetry.enabled": false
 }

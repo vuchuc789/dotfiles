@@ -1,7 +1,5 @@
 require "nvchad.autocmds"
 
--- vim.treesitter.language.register("yaml", "helm")
-
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.yaml", "*.yml", "*.tpl" },
   callback = function()
