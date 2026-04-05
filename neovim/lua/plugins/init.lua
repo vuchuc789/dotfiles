@@ -36,9 +36,6 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     event = "VeryLazy",
     branch = "main",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
     init = function()
       -- Disable entire built-in ftplugin mappings to avoid conflicts.
       -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
@@ -86,9 +83,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     event = "VeryLazy",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
     config = function()
       require("treesitter-context").setup {
         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
