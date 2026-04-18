@@ -1,13 +1,12 @@
 require "nvchad.mappings"
 
 -- add yours here
-
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 
+local telescope = require "telescope.builtin"
 local gitsigns = require "gitsigns"
-local textobjects_select = require "nvim-treesitter-textobjects.select"
--- local mc = require "multicursor-nvim"
+local ts_to_select = require "nvim-treesitter-textobjects.select"
 
 -- terminal
 nomap("t", "<C-x>")
@@ -47,7 +46,12 @@ map("n", "S", "<Plug>(leap-from-window)")
 map({ "x", "o" }, "s", "<Plug>(leap-forward)")
 map({ "x", "o" }, "S", "<Plug>(leap-backward)")
 
-map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", { desc = "telescope grep string" })
+map("n", "<leader>fw", function()
+  telescope.grep_string { search = "", only_sort_text = true }
+end, { desc = "telescope fuzzy grep" })
+map("n", "<leader>fW", function()
+  telescope.grep_string { search = "", only_sort_text = true, path_display = { "hidden" } }
+end, { desc = "telescope fuzzy grep (no path)" })
 
 -- Navigation
 map("n", "]c", function()
@@ -112,54 +116,43 @@ end, { desc = "toggle inspecttree" })
 -- keymaps
 -- You can use the capture groups defined in `textobjects.scm`
 map({ "x", "o" }, "am", function()
-  textobjects_select.select_textobject("@function.outer", "textobjects")
+  ts_to_select.select_textobject("@function.outer", "textobjects")
 end)
 map({ "x", "o" }, "im", function()
-  textobjects_select.select_textobject("@function.inner", "textobjects")
+  ts_to_select.select_textobject("@function.inner", "textobjects")
 end)
 map({ "x", "o" }, "ac", function()
-  textobjects_select.select_textobject("@class.outer", "textobjects")
+  ts_to_select.select_textobject("@class.outer", "textobjects")
 end)
 map({ "x", "o" }, "ic", function()
-  textobjects_select.select_textobject("@class.inner", "textobjects")
+  ts_to_select.select_textobject("@class.inner", "textobjects")
 end)
 -- You can also use captures from other query groups like `locals.scm`
 map({ "x", "o" }, "as", function()
-  textobjects_select.select_textobject("@local.scope", "locals")
+  ts_to_select.select_textobject("@local.scope", "locals")
 end)
 
--- -- Add or skip cursor above/below the main cursor.
--- map({ "n", "x" }, "<up>", function()
---   mc.lineAddCursor(-1)
--- end)
--- map({ "n", "x" }, "<down>", function()
---   mc.lineAddCursor(1)
--- end)
--- map({ "n", "x" }, "<leader><up>", function()
---   mc.lineSkipCursor(-1)
--- end)
--- map({ "n", "x" }, "<leader><down>", function()
---   mc.lineSkipCursor(1)
--- end)
---
--- -- Add or skip adding a new cursor by matching word/selection
--- map({ "n", "x" }, "<leader>n", function()
---   mc.matchAddCursor(1)
--- end)
--- map({ "n", "x" }, "<leader>s", function()
---   mc.matchSkipCursor(1)
--- end)
--- map({ "n", "x" }, "<leader>N", function()
---   mc.matchAddCursor(-1)
--- end)
--- map({ "n", "x" }, "<leader>S", function()
---   mc.matchSkipCursor(-1)
--- end)
---
--- -- Add and remove cursors with control + left click.
--- map("n", "<c-leftmouse>", mc.handleMouse)
--- map("n", "<c-leftdrag>", mc.handleMouseDrag)
--- map("n", "<c-leftrelease>", mc.handleMouseRelease)
---
--- -- Disable and enable cursors.
--- map({ "n", "x" }, "<c-q>", mc.toggleCursor)
+-- Trouble.nvim
+map("n", "<leader>ds", "<cmd>Trouble diagnostics toggle<cr>", {
+  desc = "Diagnostics (Trouble)",
+})
+
+map("n", "<leader>dS", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", {
+  desc = "Buffer Diagnostics (Trouble)",
+})
+
+map("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", {
+  desc = "Symbols (Trouble)",
+})
+
+map("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", {
+  desc = "LSP Definitions / references / ... (Trouble)",
+})
+
+map("n", "<leader>dL", "<cmd>Trouble loclist toggle<cr>", {
+  desc = "Location List (Trouble)",
+})
+
+map("n", "<leader>dQ", "<cmd>Trouble qflist toggle<cr>", {
+  desc = "Quickfix List (Trouble)",
+})
