@@ -4,6 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local servers = {
   "html",
   "cssls",
+  "jsonls",
   "yamlls",
   "docker_language_server",
   "terraformls",
